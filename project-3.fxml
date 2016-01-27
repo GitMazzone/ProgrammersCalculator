@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="calc_body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="464.0" prefWidth="396.0" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs1302.calc.Controller">
+    <children>
+        <ToggleButton fx:id="use_recursion" layoutX="214.0" layoutY="268.0" mnemonicParsing="false"
+                      onAction="#recursionToggle" prefHeight="45.0" prefWidth="175.0"
+                      styleClass="toggle" text="Use Recursion"/>
+        <Button fx:id="seven" layoutX="7.0" layoutY="266.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="7"/>
+        <Button fx:id="eight" layoutX="55.0" layoutY="266.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="8"/>
+        <Button fx:id="nine" layoutX="103.0" layoutY="266.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="9"/>
+        <Button fx:id="six" layoutX="103.0" layoutY="314.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="6"/>
+        <Button fx:id="five" layoutX="55.0" layoutY="314.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="5"/>
+        <Button fx:id="four" layoutX="7.0" layoutY="314.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="4"/>
+        <Button fx:id="three" layoutX="103.0" layoutY="362.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="3"/>
+        <Button fx:id="two" layoutX="55.0" layoutY="362.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="2"/>
+        <Button fx:id="one" layoutX="7.0" layoutY="362.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="1"/>
+        <Button fx:id="zero" layoutX="7.0" layoutY="410.0" mnemonicParsing="false"
+                onAction="#showValue" prefHeight="45.0" prefWidth="45.0" styleClass="number-btn"
+                text="0"/>
+        <Button fx:id="enter" layoutX="55.0" layoutY="410.0" mnemonicParsing="false"
+                onAction="#equate" prefHeight="45.0" prefWidth="94.0" text="ENTER"/>
+        <Button fx:id="add" layoutX="166.0" layoutY="412.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="45.0" text="+"/>
+        <Button fx:id="subtract" layoutX="166.0" layoutY="364.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="45.0" text="-"/>
+        <Button fx:id="multiply" layoutX="166.0" layoutY="316.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="45.0" text="*"/>
+        <Button fx:id="divide" layoutX="166.0" layoutY="268.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="45.0" text="/"/>
+        <ToggleButton fx:id="hide_binary" layoutX="214.0" layoutY="316.0" mnemonicParsing="false"
+                      onAction="#toggleBinary" prefHeight="45.0" prefWidth="175.0"
+                      styleClass="toggle" text="Hide Binary"/>
+        <Button fx:id="l_shift" layoutX="214.0" layoutY="364.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="86.0" text="&lt;"/>
+        <Button fx:id="r_shift" layoutX="303.0" layoutY="364.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="86.0" text="&gt;"/>
+        <Button fx:id="back_button" layoutX="301.0" layoutY="85.0" mnemonicParsing="false"
+                onAction="#backspace" prefHeight="45.0" prefWidth="86.0" text="&lt;-"/>
+        <Button fx:id="clear_button" layoutX="301.0" layoutY="15.0" mnemonicParsing="false"
+                onAction="#clear" prefHeight="45.0" prefWidth="86.0" text="C"/>
+        <Button fx:id="factorial" layoutX="214.0" layoutY="412.0" mnemonicParsing="false"
+                onAction="#showFactorial" prefHeight="45.0" prefWidth="86.0" text="!"/>
+        <Button fx:id="power" layoutX="304.0" layoutY="412.0" mnemonicParsing="false"
+                onAction="#showOperator" prefHeight="45.0" prefWidth="86.0" text="^"/>
+        <Label fx:id="result_label" layoutX="7.0" layoutY="15.0" prefHeight="118.0"
+               prefWidth="285.0" textAlignment="RIGHT"/>
+        <Pane fx:id="bin_container" layoutX="6.0" layoutY="142.0" prefHeight="118.0"
+              prefWidth="384.0">
+            <children>
+
+                <!--START OF BINARY DIGITS-->
+
+                <Button fx:id="1" layoutX="363.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="2" layoutX="341.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="4" layoutX="319.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="8" layoutX="297.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="16" layoutX="264.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="32" layoutX="242.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="64" layoutX="220.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="128" layoutX="198.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="256" layoutX="165.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="512" layoutX="143.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="1024" layoutX="121.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="2048" layoutX="99.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="4096" layoutX="66.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="8192" layoutX="44.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="16384" layoutX="22.0" layoutY="58.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="32768" layoutY="58.0" mnemonicParsing="false" onAction="#flipBit"
+                        prefHeight="30.0"
+                        prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="65536" layoutX="363.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="131072" layoutX="341.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="262144" layoutX="319.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="524288" layoutX="297.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="1048576" layoutX="264.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="2097152" layoutX="242.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="4194304" layoutX="220.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="8388608" layoutX="198.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="16777216" layoutX="165.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="33554432" layoutX="143.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="67108864" layoutX="121.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="22.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="134217728" layoutX="99.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="268435456" layoutX="66.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="536870912" layoutX="44.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="1073741824" layoutX="22.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#flipBit"
+                        prefHeight="30.0" prefWidth="21.0" styleClass="bin_buttons" text="0">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="367.0" layoutY="90.0" text="0" styleClass="bin_label"/>
+                <Label layoutX="-1.0" layoutY="90.0" text="15" styleClass="bin_label"/>
+                <Label layoutX="-3.0" layoutY="32.0" text="31" styleClass="bin_label"/>
+            </children>
+        </Pane>
+    </children>
+</Pane>
