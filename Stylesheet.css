@@ -1,0 +1,50 @@
+* {
+	-fx-font-weight: bold;
+	-fx-font-size: 20;
+}
+
+.button {
+	-fx-background-color: #ec9848;
+}
+
+.number-btn {
+	-fx-background-color: #f2f2f2;
+}
+
+.toggle {
+	-fx-background-color: #d5d5d5;
+}
+
+.toggle:selected {
+	-fx-background-color: #959595;
+}
+
+.label {
+	-fx-background-color: #d5d5d5;
+}
+
+.bin_buttons {
+	-fx-font-size: 5px;
+	-fx-background-color: #d5d5d5;
+}
+
+.bin_label {
+	-fx-background-color: rgb(114, 114, 114);
+	-fx-text-fill: #d5d5d5;
+}
+
+#calc_body {
+	-fx-background-color: rgb(114, 114, 114);
+}
+
+#clear_button {
+	-fx-background-color: #df533c;
+}
+
+#back_button {
+	-fx-background-color: #ec9848;
+}
+
+#enter {
+	-fx-font-size: 18;
+}
